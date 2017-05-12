@@ -14,3 +14,18 @@ family.v
 family.v.count<- rep(NA, length(novel.time.v)) # initialize a vector full of NA values
 family.v.count[family.v]<-1 # using the numerical positions stored in the family.v object, so the resetting is simple with this expression
 family.v.count
+
+## Plot showing the distribution of the word, "family" across the novel
+plot(family.v.count, main="Dispersion Plot of `family' in Moby Dick",
+     xlab="Novel Time", ylab="family", type="h", ylim=c(0,1), yaxt='n')
+
+man.v<- which(novel.words == "man")
+man.v
+## Ultimately we want to create a dispersion plot where the x-axis is novel.time.v and the y-axis is the values need only be some reflection of the logical condition of TRUE where a family is found and FALSE or none found when an instance of family is not found
+man.v.count<- rep(NA, length(novel.time.v)) # initialize a vector full of NA values
+man.v.count[man.v]<-1 # using the numerical positions stored in the family.v object, so the resetting is simple with this expression
+man.v.count
+
+## Plot showing the distribution of the word, "family" across the novel
+plot(man.v.count, main="Dispersion Plot of `man' in Moby Dick",
+     xlab="Novel Time", ylab="family", type="h", ylim=c(0,1), yaxt='n')
