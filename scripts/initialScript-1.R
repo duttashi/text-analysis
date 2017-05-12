@@ -14,3 +14,6 @@ novel.wordsonly.freq.sorted["he"]/novel.wordsonly.freq.sorted["she"] # he is 16 
 novel.wordsonly.relfreq<- 100*(novel.wordsonly.freq.sorted/sum(novel.wordsonly.freq.sorted))
 novel.wordsonly.relfreq["the"] # "the" occurs 6.6 times per every 100 words in the novel Moby Dick
 
+plot(novel.wordsonly.relfreq[1:10], type="b",
+     xlab="Top Ten Words", ylab="Percentage of Full Text", xaxt ="n")
+axis(1,1:10, labels=names(novel.wordsonly.relfreq [1:10]))

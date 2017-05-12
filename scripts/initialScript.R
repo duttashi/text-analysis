@@ -51,6 +51,7 @@ whale.hits<-length(novel.wordsonly[which(novel.wordsonly=="whale")]) # the word 
 whale.hits.perct<- whale.hits/totalwords
 whale.hits.perct # The word whale occurs 0.005% times in whole text
 length(unique(novel.wordsonly)) # there are 16,872 unique words in the novel
+
 novel.wordsonly.freq<- table(novel.wordsonly) # the table() will build up the contigency table that contains the count of every word occurence
 novel.wordsonly.freq.sorted<- sort(novel.wordsonly.freq, decreasing = TRUE) # sort the data with most frequent words first followed by least frequent words
 head(novel.wordsonly.freq.sorted)
