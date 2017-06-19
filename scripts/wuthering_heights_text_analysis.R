@@ -52,5 +52,3 @@ tidy_novel_data %>%
   mytheme+
   ggtitle("Top words in Wuthering Heights")
 
-
-
