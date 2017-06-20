@@ -100,4 +100,3 @@ barplot(words_df[1:10,]$freq, las = 2, names.arg = words_df[1:10,]$word,
         col ="lightblue", main ="Most frequent words",
         ylab = "Word frequencies")
 
-# SENTIMENT ANALYSIS
