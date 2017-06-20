@@ -10,6 +10,7 @@ library(dplyr)
 library(tidytext)
 library(ggplot2)
 
+# READ or DOWNLOAD THE DATA
 # find the gutenberg title for analysis. Look for the "gutenberg_id"
 gutenberg_works(title == "Wuthering Heights")
 
@@ -21,7 +22,7 @@ head(wuthering_heights)
 # Notice, it has two columns, the first column contains "gutenberg_id" and the second col contains the novel text.
 # Do not remove the first column even though it contains a single repeating value 768, because, this column will be used subsequently for filtering data
 
-# Data preprocessing
+# DATA PREPROCESSING & INITIAL VISUALIZATION
 
 ## Step 1: To create a tidy dataset, we need to restructure it in the one-token-per-row format, which as we saw earlier is done with the unnest_tokens() function.
 tidy_novel_data<- wuthering_heights %>%
@@ -51,7 +52,7 @@ tidy_novel_data %>%
   mytheme+
   ggtitle("Top words in Wuthering Heights")
 
-# create a wordcloud
+# WORDCLOUD
 # load libraries
 library("tm")
 library("SnowballC")
@@ -81,8 +82,22 @@ words<- names(word_freq)
 words_df<- data.frame(word=words, freq=word_freq)
 
 # create the first word cloud
+set.seed(1234)
 wordcloud (words_df$word, words_df$freq, scale=c(4,0.5), random.order=FALSE, rot.per=0.35, 
            use.r.layout=FALSE, colors=brewer.pal(8, "Dark2"), max.words = 100)
 # create the second word cloud
 wordcloud (words_df$word, words_df$freq, scale=c(4,0.5), random.order=FALSE, rot.per=0.35, 
            use.r.layout=FALSE, colors=brewer.pal(8, "Accent"), max.words = 100)
+
+# Explore frequent terms and their association with each other
+findFreqTerms(dtm, lowfreq = 4)
+findMostFreqTerms(dtm)
+# You can analyze the association between frequent terms (i.e., terms which correlate) using findAssocs() function.
+#findAssocs(dtm, terms = "master", corlimit = 0.3)
+
+# Plot word frequencies
+barplot(words_df[1:10,]$freq, las = 2, names.arg = words_df[1:10,]$word,
+        col ="lightblue", main ="Most frequent words",
+        ylab = "Word frequencies")
+
+# SENTIMENT ANALYSIS
