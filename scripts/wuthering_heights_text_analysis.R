@@ -7,7 +7,6 @@ rm(list = ls())
 # Load the required libraries
 library(gutenbergr)
 library(dplyr)
-library(magrittr)
 library(tidytext)
 library(ggplot2)
 
@@ -52,3 +51,38 @@ tidy_novel_data %>%
   mytheme+
   ggtitle("Top words in Wuthering Heights")
 
+# create a wordcloud
+# load libraries
+library("tm")
+library("SnowballC")
+library("wordcloud")
+
+# convert to corpus
+novel_corpus<- Corpus(VectorSource(tidy_novel_data[,2]))
+# preprocessing the novel data
+novel_corpus_clean<- tm_map(novel_corpus, tolower)
+novel_corpus_clean<- tm_map(novel_corpus, removeNumbers)
+novel_corpus_clean<- tm_map(novel_corpus, removeWords, stopwords("english")) 
+novel_corpus_clean<- tm_map(novel_corpus, removePunctuation)
+# To see the first few documents in the text file
+inspect(novel_corpus)[1:10]
+
+# build a document term matrix. Document matrix is a table containing the frequency of the words.
+dtm<- DocumentTermMatrix(novel_corpus_clean)
+# explicitly convert the document term matrix table to matrix format
+m<- as.matrix(dtm)
+# sort the matrix and store in a new data frame
+word_freq<- sort(colSums(m), decreasing = TRUE)
+# look at the top 5 words
+head(word_freq,5)
+# create a character vector 
+words<- names(word_freq)
+# create a data frame having the character vector and its associated number of occurences or frequency
+words_df<- data.frame(word=words, freq=word_freq)
+
+# create the first word cloud
+wordcloud (words_df$word, words_df$freq, scale=c(4,0.5), random.order=FALSE, rot.per=0.35, 
+           use.r.layout=FALSE, colors=brewer.pal(8, "Dark2"), max.words = 100)
+# create the second word cloud
+wordcloud (words_df$word, words_df$freq, scale=c(4,0.5), random.order=FALSE, rot.per=0.35, 
+           use.r.layout=FALSE, colors=brewer.pal(8, "Accent"), max.words = 100)
