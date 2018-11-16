@@ -1,14 +1,29 @@
-[![Project Status: Active – The project is being actively developed.](http://www.repostatus.org/badges/latest/active.svg)](http://www.repostatus.org/#active) [![Last-changedate](https://img.shields.io/badge/last%20change-2017--05--12-green.svg)](/commits/master) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
+# Readme
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/duttashi/text-analysis/graphs/commit-activity)
+[![Issues](https://img.shields.io/github/issues/duttashi/text-analysis.svg)](https://github.com/duttashi/text-analysis/issues)
+[![Popularity Score](https://img.shields.io/github/forks/duttashi/text-analysis.svg)](https://github.com/duttashi/text-analysis/network)
+[![Interested](https://img.shields.io/github/stars/duttashi/text-analysis.svg)](https://github.com/duttashi/text-analysis/stargazers)
+[![License](https://img.shields.io/github/license/duttashi/text-analysis.svg)](https://github.com/duttashi/text-analysis/blob/master/LICENSE)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.1489352.svg)](https://doi.org/10.5281/zenodo.1489352)
 ### Cleaning and Analyzing textual data
 
-Weaving analytical stories from text data
+Weaving analytic stories from text data
 
-## Contact
-If you'd like to contact me regarding bugs, questions, or general consulting, feel free to drop me a line - 
-[ashishdutt@yahoo.com.my]
+The repository contains `data`, `code`, `resources` and `plots` folders.
 
-*Copyright 2016 [Ashish Dutt](https://duttashi.github.io/).*
+###### Have a question?
+
+Ask your question on [Stack Overflow](http://stackoverflow.com/questions/tagged/r)
+or the [R-SIG-Finance](https://stat.ethz.ch/mailman/listinfo/r-sig-finance)
+mailing list (you must subscribe to post).
+
+## Contributing [![contributions welcome](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/duttashi/text-analysis/issues)
+
+Please see the [contributing guide](CONTRIBUTING.md).
+
+## Author
+[Ashish Dutt](https://duttashi.github.io/about/)
+
 
 <p align="center">
 <a href="https://www.paypal.me/ashishdutt">
