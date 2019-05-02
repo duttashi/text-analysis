@@ -9,7 +9,7 @@
 
 Weaving analytic stories from text data
 
-The repository contains `data`, `code`, `resources` and `plots` folders.
+The repository consist of the following folders namely, `data`, `scripts`, `resources` and `figures`.
 
 ###### Have a question?
 
