@@ -2,3 +2,8 @@
 .Rhistory
 .RData
 .Ruserdata
+/*.idea
+/data
+*.xml
+*.iml
+*.idea
