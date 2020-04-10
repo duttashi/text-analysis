@@ -7,3 +7,6 @@
 *.xml
 *.iml
 *.idea
+/.ipynb_checkpoints/
+/*.cpython-37.pyc
+/scripts/python/__pycache__
