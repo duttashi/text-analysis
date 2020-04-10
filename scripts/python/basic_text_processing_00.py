@@ -22,11 +22,13 @@ for filename in os.listdir(filePath):
                 f.close()
                 
                 # basic text cleaning process
+                # using re library, split the text data into words
                 words = re.split(r'\W+', fileTxt)
+                # add split words to a list and lowercase them
                 words = [word.lower() for word in words]
+                # using string library, remove punctuation from words and save in table format
                 table = str.maketrans('', '', string.punctuation)
-                
-                # concatenating parsed data
+                # concatenating clean data to list
                 stripped += [w.translate(table) for w in words]   
                 
                 # search for a given string in clean text. If found then print the line number
