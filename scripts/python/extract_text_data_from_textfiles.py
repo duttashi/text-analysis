@@ -43,8 +43,8 @@ for filename in os.listdir(filePath):
                 
         # create a dictionary that stores the unique words found in the text files 
         countlist = Counter(stripped) 
-print("Count of uniique words in text files", filename, " are: ")
 
+print("Count of uniique words in text files", filename, " are: ")
 # print the unique word and its frequency of occurence
 for key, val in countlist.items():
     print(key, val)
