@@ -1,7 +1,7 @@
 # Objective #1: To read multiple text files in a given directory & write content of each text file to a list
 # Objective #2: To search for a given text string in each file and write its line number to a dictionary and print it
 
-import re, os, string
+import re, os, string, logging, sys
 from collections import Counter
 
 fileData = [] # initialize an empty list
@@ -10,7 +10,10 @@ phrase = [] # initialize an empty list
 searchPhrase = 'beauty'
 
 # the path to text files
-filePath = "C:\\Users\\Ashoo\\Documents\\PythonPlayground\\text-analysis\\data\\plainText"
+# Note the usage of relative path in here.. Since the script is in a folder which is different from the data folder.
+# Pandas will start looking from where your current python file is located. Therefore you can move from your current directory to where your data is located with '..' 
+
+filePath = "../../data/plainText"
 for filename in os.listdir(filePath): 
     # search for files ending with .txt extension and read them in memory
     if filename.strip().endswith('.txt'):
