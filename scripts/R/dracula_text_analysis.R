@@ -11,6 +11,8 @@ gutenberg_works<- gutenberg_works(languages = "en")
 View(gutenberg_works)
 # The id for Bram Stoker's Dracula is 345
 dracula<- gutenberg_download(345)
+View(dracula)
+str(dracula)
 
 #head(dracula_stripped,169)
 #tail(dracula_stripped,15482)
