@@ -22,7 +22,11 @@ typeof(df_lst)
 # df<- bind_rows(df_lst)
 df<- plyr::ldply(df_lst, data.frame)
 str(df)
-dim(df) # [1] 469815     25
+dim(df) # [1] 476970     22
+
+# lowercase all character variables
+df<- df %>%
+  mutate(across(where(is.character), tolower))
 
 # Data Engineering: split col created_date into date and time
 df$create_date<- as.Date(df$created_date)
@@ -39,12 +43,6 @@ df$post_text<- NULL
 df$postURL<- NULL
 df$title_text<- NULL
 df$created_date<- NULL
-
-
-# lowercase all character data
-df$title<- tolower(df$title)
-df$author<- tolower(df$author)
-df$post<- tolower(df$post)
 
 # extract url from post and save as separate column
 url_pattern <- "http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\\(\\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+"
@@ -79,7 +77,6 @@ df1 <- df1 %>%
   filter(!is.na(create_min)) %>%
   filter(!is.na(create_sec))
 colSums(is.na(df1))
-colnames(df1)
 # rearrange the cols
 df1<- df1[,c(3,10,14:15,11:13,1:2,4:9)]
 
@@ -105,14 +102,3 @@ write_csv(df_clean, file = "data/kaggle_reddit_data/reddit_data_clean.csv")
 ##
 # df_clean<-df_clean %>%
 #   filter(str_detect(str_to_lower(post), url_pattern)) 
-
-
-
-
-
-
-
-
-
-
-

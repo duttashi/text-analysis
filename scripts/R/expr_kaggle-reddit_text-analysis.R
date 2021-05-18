@@ -32,7 +32,8 @@ df1<- df %>%
   count(sentiment, word) %>% # count the # of positive & negative words
   spread(sentiment, n, fill = 0) %>% # made data wide rather than narrow
   mutate(sentiment = positive - negative) # # of positive words - # of negative owrds
-  
+str(df1)
+
 df2<- df %>%
   # add row number
   mutate(line=row_number()) %>%
@@ -43,9 +44,10 @@ df2<- df %>%
   inner_join(get_sentiments("bing"))%>%
   count(word, sentiment, sort = TRUE) %>%
   ungroup() %>%
-  slice_max(n, n = 10) %>%
+  #slice_max(n, n = 10) %>%
   #ungroup() %>%
   mutate(word = reorder(word, n)) 
+view(df2)
 
 df2 %>%
   group_by(sentiment) %>%
