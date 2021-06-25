@@ -10,3 +10,4 @@
 /.ipynb_checkpoints/
 /*.cpython-37.pyc
 /scripts/python/__pycache__
+*.spyproject
